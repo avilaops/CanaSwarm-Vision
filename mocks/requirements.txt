@@ -1,0 +1,10 @@
+# CanaSwarm-Vision - Dependencies
+# Mock implementation uses only Python stdlib (json, math, random, time, datetime)
+# No external dependencies required for mock
+# 
+# For production:
+# opencv-python==4.8.0
+# torch==2.0.1
+# torchvision==0.15.2
+# ultralytics==8.0.0  # YOLO v8
+# numpy==1.24.3

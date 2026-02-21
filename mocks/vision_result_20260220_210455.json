@@ -1,0 +1,170 @@
+{
+  "frame_id": "FRAME-20260220-001",
+  "timestamp": "2026-02-20T15:10:30.125Z",
+  "robot_id": "MICROBOT-001",
+  "processing_time_ms": 0.9982585906982422,
+  "objects": {
+    "total": 3,
+    "high_risk": 1,
+    "detections": [
+      {
+        "object_id": "OBJ-001",
+        "class": "person",
+        "confidence": 0.95,
+        "bbox": {
+          "x_min": 850,
+          "y_min": 420,
+          "x_max": 1050,
+          "y_max": 920,
+          "center_x": 950,
+          "center_y": 670
+        },
+        "distance_m": 15.5,
+        "velocity_m_s": 0.8,
+        "heading_deg": 95,
+        "risk_level": "medium",
+        "action_required": "slow_down"
+      },
+      {
+        "object_id": "OBJ-002",
+        "class": "tractor",
+        "confidence": 0.88,
+        "bbox": {
+          "x_min": 1200,
+          "y_min": 350,
+          "x_max": 1600,
+          "y_max": 750,
+          "center_x": 1400,
+          "center_y": 550
+        },
+        "distance_m": 45.0,
+        "velocity_m_s": 0.0,
+        "heading_deg": 0,
+        "risk_level": "low",
+        "action_required": "monitor"
+      },
+      {
+        "object_id": "OBJ-003",
+        "class": "animal_cattle",
+        "confidence": 0.72,
+        "bbox": {
+          "x_min": 200,
+          "y_min": 600,
+          "x_max": 350,
+          "y_max": 850,
+          "center_x": 275,
+          "center_y": 725
+        },
+        "distance_m": 8.2,
+        "velocity_m_s": 0.3,
+        "heading_deg": 180,
+        "risk_level": "high",
+        "action_required": "emergency_stop"
+      }
+    ]
+  },
+  "lanes": {
+    "lanes_detected": 2,
+    "current_lane": 1,
+    "lane_lines": [
+      {
+        "lane_id": "LEFT",
+        "points": [
+          {
+            "x": 100,
+            "y": 1080
+          },
+          {
+            "x": 300,
+            "y": 800
+          },
+          {
+            "x": 500,
+            "y": 400
+          },
+          {
+            "x": 600,
+            "y": 0
+          }
+        ],
+        "confidence": 0.92,
+        "width_cm": 150
+      },
+      {
+        "lane_id": "RIGHT",
+        "points": [
+          {
+            "x": 1300,
+            "y": 1080
+          },
+          {
+            "x": 1400,
+            "y": 800
+          },
+          {
+            "x": 1500,
+            "y": 400
+          },
+          {
+            "x": 1550,
+            "y": 0
+          }
+        ],
+        "confidence": 0.89,
+        "width_cm": 150
+      }
+    ],
+    "lane_deviation_cm": -12,
+    "lane_deviation_status": "slight_left",
+    "steering_correction_deg": 2.5
+  },
+  "depth": {
+    "method": "stereo_vision",
+    "baseline_cm": 12,
+    "min_depth_m": 0.5,
+    "max_depth_m": 50,
+    "resolution": "640x480",
+    "average_depth_m": 18.5,
+    "obstacles_near": [
+      {
+        "position": {
+          "x": 275,
+          "y": 725
+        },
+        "depth_m": 8.2,
+        "size_estimate_m": 1.2
+      }
+    ]
+  },
+  "risk_analysis": {
+    "overall_risk_level": "high",
+    "collision_risk": {
+      "critical_objects": 0,
+      "high_risk_objects": 1,
+      "stopping_distance_m": 0.36,
+      "closest_object_m": 8.2
+    },
+    "navigation_risk": {
+      "lane_deviation_cm": -12,
+      "lane_status": "deviation",
+      "steering_correction_deg": 2.5
+    }
+  },
+  "actions": {
+    "timestamp": "2026-02-20T21:04:55.493524",
+    "priority": "high",
+    "commands": [
+      {
+        "type": "reduce_velocity",
+        "target_velocity_m_s": 0.5,
+        "reason": "Objeto a 8.2m"
+      },
+      {
+        "type": "steering_correction",
+        "angle_deg": 2.5,
+        "reason": "Desvio de -12cm"
+      }
+    ],
+    "notifications": []
+  }
+}
